@@ -36,15 +36,11 @@ class Sidebar(ctk.CTkFrame):
             font=ctk.CTkFont(size=12),
             text_color="#4A5568",
         ).grid(row=2, column=0, pady=(0, 16))
-
-        # Separator
+        
         self._sep(row=3)
-
-        # Score card
         score_card = ctk.CTkFrame(self, corner_radius=10, fg_color="#2D3748")
         score_card.grid(row=4, column=0, padx=14, pady=10, sticky="ew")
         score_card.grid_columnconfigure((0, 1), weight=1)
-
         ctk.CTkLabel(
             score_card,
             text="🏆  Score",
@@ -81,7 +77,6 @@ class Sidebar(ctk.CTkFrame):
         )
         self._losses_lbl.grid(row=2, column=1, pady=(0, 10))
 
-        # Category
         ctk.CTkLabel(
             self,
             text="Category",
@@ -97,7 +92,6 @@ class Sidebar(ctk.CTkFrame):
         )
         self._cat_lbl.grid(row=6, column=0)
 
-        # Attempts left
         ctk.CTkLabel(
             self,
             text="Attempts Left",
@@ -112,8 +106,6 @@ class Sidebar(ctk.CTkFrame):
             text_color="#63B3ED",
         )
         self._attempts_lbl.grid(row=8, column=0)
-
-        # Hint button + label
         self._hint_btn = ctk.CTkButton(
             self,
             text="💡  Show Hint",
@@ -125,7 +117,6 @@ class Sidebar(ctk.CTkFrame):
             command=self._show_hint,
         )
         self._hint_btn.grid(row=9, column=0, padx=14, pady=(14, 4), sticky="ew")
-
         self._hint_lbl = ctk.CTkLabel(
             self,
             text="",
@@ -134,14 +125,8 @@ class Sidebar(ctk.CTkFrame):
             wraplength=190,
         )
         self._hint_lbl.grid(row=10, column=0, padx=14)
-
-        # Spacer
         self.grid_rowconfigure(11, weight=1)
-
-        # Separator
         self._sep(row=12)
-
-        # Theme toggle
         self._theme_btn = ctk.CTkButton(
             self,
             text="☀  Light Mode",
@@ -154,8 +139,6 @@ class Sidebar(ctk.CTkFrame):
             command=self._on_toggle_theme,
         )
         self._theme_btn.grid(row=13, column=0, padx=12, pady=(8, 4), sticky="ew")
-
-        # New game button
         ctk.CTkButton(
             self,
             text="🔄  New Game",
@@ -203,5 +186,4 @@ class Sidebar(ctk.CTkFrame):
             row=row, column=0, sticky="ew", padx=14, pady=4
         )
 
-    # Internal hint store
     _hint: str = ""
