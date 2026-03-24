@@ -9,7 +9,6 @@ class App(ctk.CTk):
         super().__init__()
         ctk.set_appearance_mode("dark")
         ctk.set_default_color_theme("blue")
-
         self.title("🎮 Hangman Game")
         self.geometry("860x640")
         self.resizable(False, False)
@@ -32,11 +31,9 @@ class App(ctk.CTk):
             on_toggle_theme=self._toggle_theme,
         )
         self._sidebar.grid(row=0, column=0, sticky="nsew")
-
         right = ctk.CTkFrame(self, corner_radius=0, fg_color="#171923")
         right.grid(row=0, column=1, sticky="nsew")
         right.grid_columnconfigure(0, weight=1)
-
         canvas_card = ctk.CTkFrame(right, corner_radius=12, fg_color="#1A202C")
         canvas_card.grid(row=0, column=0, padx=24, pady=(20, 8), sticky="ew")
         self._canvas = HangmanCanvas(canvas_card)
@@ -69,10 +66,8 @@ class App(ctk.CTk):
             font=ctk.CTkFont(size=14, weight="bold"),
         )
         self._status_lbl.grid(row=4, column=0, pady=(0, 6))
-
         kb_card = ctk.CTkFrame(right, corner_radius=12, fg_color="#1A202C")
         kb_card.grid(row=5, column=0, padx=24, pady=(0, 20), sticky="ew")
-
         rows = ["QWERTYUIOP", "ASDFGHJKL", "ZXCVBNM"]
         for r, letters in enumerate(rows):
             row_frame = ctk.CTkFrame(kb_card, fg_color="transparent")
