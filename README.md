@@ -13,10 +13,15 @@ Hangman-Game-GUI/
 ├── requirements.txt         # Python dependencies
 ├── assets/                  # Images and assets for the GUI
 ├── core/                    # Game logic modules
+│   ├──__init__.py
 │   └── game.py              # Hangman game mechanics
 ├── data/                    # Game data
+│   ├──__init__.py
 │   └── words.py             # Word lists for categories
 ├── gui/                     # User interface components
+│   ├── __init__.py
+│   ├── app.py
+│   ├── canvas.py
 │   └── sidebar.py           # Sidebar navigation UI
 └── README.md                # Project documentation
 ```
@@ -53,25 +58,6 @@ Hangman-Game-GUI/
 
 ---
 
-## 📌 Requirements
-
-Install the required dependencies using pip:
-
-```bash
-pip install -r requirements.txt
-```
-
-Or install them manually:
-
-```bash
-pip install customtkinter pillow
-```
-
-
-Standard libraries like `random`, `tkinter`, and `os` are included with Python.
-
----
-
 ## ▶️ How to Run
 
 **1. Clone the repository:**
@@ -90,6 +76,12 @@ cd Hangman-Game-GUI
 
 ```bash
 pip install -r requirements.txt
+```
+
+**OR**
+
+```bash
+pip install customtkinter
 ```
 
 **4. Run the game:**
@@ -166,7 +158,25 @@ python main.py
 
 ## ⚠️ Disclaimer
 
-This project is developed for **educational purposes** to demonstrate Python GUI programming with CustomTkinter. It showcases game state management, event handling, and modern UI design principles.
+> This project is developed for **educational purposes** to demonstrate Python GUI programming with CustomTkinter. 
+
+> It showcases game state management, event handling, and modern UI design principles.
+
+---
+
+## 📸 Preview
+
+### 1. Main UI
+
+![Rich CLI Preview](assets/HG-1.png)
+
+### 2. Win Game
+
+![Rich CLI Preview](assets/HG-2.png)
+
+### 3. Lost Game
+
+![Rich CLI Preview](assets/HG-3.png)
 
 ---
 
