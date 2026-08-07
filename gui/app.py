@@ -1,7 +1,8 @@
 import customtkinter as ctk
+
 from core.game import HangmanGame
-from gui.sidebar import Sidebar
 from gui.canvas import HangmanCanvas
+from gui.sidebar import Sidebar
 
 
 class App(ctk.CTk):
@@ -19,8 +20,6 @@ class App(ctk.CTk):
         self._key_btns: dict[str, ctk.CTkButton] = {}
         self._build_ui()
         self._new_game()
-
-    # ── UI Construction
 
     def _build_ui(self):
         self.grid_columnconfigure(1, weight=1)
@@ -87,8 +86,6 @@ class App(ctk.CTk):
                 btn.pack(side="left", padx=3, pady=4)
                 self._key_btns[letter] = btn
 
-    # ── Game flow
-
     def _new_game(self):
         self._game.new_game()
         self._sidebar.update_category(self._game.category)
@@ -140,8 +137,6 @@ class App(ctk.CTk):
                 text_color="#FC6464",
             )
             self._disable_keyboard()
-
-    # ── Helpers
 
     def _refresh_word(self):
         self._word_lbl.configure(text=self._game.word_display())
