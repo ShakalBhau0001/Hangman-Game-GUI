@@ -1,7 +1,8 @@
 import random
+
 from data.words import WORD_BANK
 
-MAX_WRONG = 5
+MAX_WRONG = 6
 
 
 class HangmanGame:
