@@ -1,6 +1,7 @@
 # 🎮 Hangman-Game-GUI 🔤
 
-A modern, feature-rich desktop Hangman game built with **CustomTkinter**.It offers a sleek user interface with sidebar navigation, an on-screen keyboard, animated hangman drawing, multiple word categories, a hint system, and a live score tracker for a complete gaming experience.
+A modern, feature-rich desktop Hangman game built with **CustomTkinter**.
+It offers a sleek user interface with sidebar navigation, an on-screen keyboard, animated hangman drawing, multiple word categories, a hint system, and a live score tracker for a complete gaming experience.
 
 ---
 
@@ -39,10 +40,10 @@ Hangman-Game-GUI/
 
 ### 🖥 GUI Highlights
 - Modern, dark-themed interface using **CustomTkinter**
-- **Sidebar navigation** for smooth category switching
+- **Sidebar dashboard** – live score, current category, attempts left, and hint button
 - **Animated hangman drawing** – each wrong guess adds a part of the hangman
+- **Dark & Light mode** – toggle instantly from the sidebar, every panel/card/button re-themes
 - Responsive layout with clear visual feedback for correct/wrong guesses
-- Category selection menu with icons
 
 ---
 
@@ -52,7 +53,6 @@ Hangman-Game-GUI/
 | ---------- | ---- |
 | **Python 3** | Core programming language |
 | **CustomTkinter** | Modern GUI framework |
-| **Pillow (PIL)** | Image processing for assets |
 | **Random** | Word selection and game variation |
 | **Tkinter** | Base UI components |
 
@@ -100,6 +100,7 @@ python main.py
 4. **Win or lose** – guess all letters correctly to win; each wrong guess adds a part to the hangman
 5. **Track your score** – your wins and losses are displayed in real-time
 6. **Play again** – start a new game with the same category or switch to another
+7. **Switch theme** – click "☀ Light Mode / 🌙 Dark Mode" in the sidebar to toggle the whole UI's appearance
 
 ---
 
@@ -134,13 +135,19 @@ python main.py
 ### Adding New Word Categories
 
 1. Open `data/words.py`
-2. Add a new category dictionary with your word list:
+2. Add a new key to the `WORD_BANK` dictionary. Each entry is a list of `(word, hint)` tuples:
 
 ```python
-   "New Category": ["word1", "word2", "word3"]
+WORD_BANK = {
+    # ...existing categories...
+    "🎵 Music": [
+        ("guitar", "A stringed musical instrument"),
+        ("melody", "A sequence of musical notes"),
+    ],
+}
 ```
 
-3. The category will automatically appear in the sidebar
+3. The new category will automatically be included in the random category pool
 
 
 ---
@@ -168,15 +175,19 @@ python main.py
 
 ### 1. Main UI
 
-![Rich CLI Preview](assets/HG-1.png)
+![GUI Preview](assets/HG-1.png)
 
 ### 2. Win Game
 
-![Rich CLI Preview](assets/HG-2.png)
+![GUI Preview](assets/HG-2.png)
 
 ### 3. Lost Game
 
-![Rich CLI Preview](assets/HG-3.png)
+![GUI Preview](assets/HG-3.png)
+
+### 4. Light Mode
+
+![GUI Preview](assets/HG-4.png)
 
 ---
 
