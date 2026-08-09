@@ -1,5 +1,12 @@
 import customtkinter as ctk
 
+SIDEBAR_BG = ("#F5F6FA", "#1A1A2E")
+CARD_BG = ("#FFFFFF", "#2D3748")
+SEP_COLOR = ("#E2E8F0", "#2D3748")
+MUTED_TEXT = ("#718096", "#A0AEC0")
+THEME_BTN_BG = ("#E2E8F0", "#2D3748")
+THEME_BTN_HOVER = ("#CBD5E0", "#4A5568")
+
 
 class Sidebar(ctk.CTkFrame):
     def __init__(self, master, on_new_game, on_toggle_theme, **kwargs):
@@ -7,16 +14,15 @@ class Sidebar(ctk.CTkFrame):
             master,
             width=220,
             corner_radius=0,
-            fg_color="#1A1A2E",
+            fg_color=SIDEBAR_BG,
             **kwargs,
         )
         self.grid_propagate(False)
         self.grid_columnconfigure(0, weight=1)
         self._on_new_game = on_new_game
         self._on_toggle_theme = on_toggle_theme
+        self._hint = ""
         self._build()
-
-    # ── Build
 
     def _build(self):
         ctk.CTkLabel(self, text="🎮", font=ctk.CTkFont(size=40)).grid(
@@ -34,11 +40,11 @@ class Sidebar(ctk.CTkFrame):
             self,
             text="Game",
             font=ctk.CTkFont(size=12),
-            text_color="#4A5568",
+            text_color=MUTED_TEXT,
         ).grid(row=2, column=0, pady=(0, 16))
-        
+
         self._sep(row=3)
-        score_card = ctk.CTkFrame(self, corner_radius=10, fg_color="#2D3748")
+        score_card = ctk.CTkFrame(self, corner_radius=10, fg_color=CARD_BG)
         score_card.grid(row=4, column=0, padx=14, pady=10, sticky="ew")
         score_card.grid_columnconfigure((0, 1), weight=1)
         ctk.CTkLabel(
@@ -51,14 +57,14 @@ class Sidebar(ctk.CTkFrame):
             score_card,
             text="Wins",
             font=ctk.CTkFont(size=11),
-            text_color="#A0AEC0",
+            text_color=MUTED_TEXT,
         ).grid(row=1, column=0)
 
         ctk.CTkLabel(
             score_card,
             text="Losses",
             font=ctk.CTkFont(size=11),
-            text_color="#A0AEC0",
+            text_color=MUTED_TEXT,
         ).grid(row=1, column=1)
 
         self._wins_lbl = ctk.CTkLabel(
@@ -81,7 +87,7 @@ class Sidebar(ctk.CTkFrame):
             self,
             text="Category",
             font=ctk.CTkFont(size=11),
-            text_color="#4A5568",
+            text_color=MUTED_TEXT,
         ).grid(row=5, column=0, pady=(10, 2))
 
         self._cat_lbl = ctk.CTkLabel(
@@ -96,7 +102,7 @@ class Sidebar(ctk.CTkFrame):
             self,
             text="Attempts Left",
             font=ctk.CTkFont(size=11),
-            text_color="#4A5568",
+            text_color=MUTED_TEXT,
         ).grid(row=7, column=0, pady=(10, 2))
 
         self._attempts_lbl = ctk.CTkLabel(
@@ -132,10 +138,10 @@ class Sidebar(ctk.CTkFrame):
             text="☀  Light Mode",
             height=34,
             corner_radius=8,
-            fg_color="#2D3748",
-            hover_color="#4A5568",
+            fg_color=THEME_BTN_BG,
+            hover_color=THEME_BTN_HOVER,
             font=ctk.CTkFont(size=12),
-            text_color="#A0AEC0",
+            text_color=MUTED_TEXT,
             command=self._on_toggle_theme,
         )
         self._theme_btn.grid(row=13, column=0, padx=12, pady=(8, 4), sticky="ew")
@@ -182,8 +188,6 @@ class Sidebar(ctk.CTkFrame):
         self._hint_btn.configure(state="disabled")
 
     def _sep(self, row: int):
-        ctk.CTkFrame(self, height=1, fg_color="#2D3748").grid(
+        ctk.CTkFrame(self, height=1, fg_color=SEP_COLOR).grid(
             row=row, column=0, sticky="ew", padx=14, pady=4
         )
-
-    _hint: str = ""
